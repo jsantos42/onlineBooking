@@ -13,9 +13,9 @@ const TreatmentSelection = ({onChange}) => {
             </div>
         )
     })
-    return (<>
+    return (<div>
             {treatmentArray}
-        </>
+        </div>
     )
 
 };

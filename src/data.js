@@ -33,6 +33,10 @@ const practitioners = [
         name: 'C',
         freeSlots: slots,
     },
+    {
+        name: 'D',
+        freeSlots: slots,
+    },
 ]
 
 /*
