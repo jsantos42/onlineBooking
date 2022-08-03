@@ -1,4 +1,8 @@
-const SelectPractitioner = ({practitioners, action}) => {
+import {practitioners} from "../data";
+
+// Notice how it starts as defaultChecked, since on SlotSelection
+// checkablePractitioners starts with 'checked = true'
+const SelectPractitioner = ({action}) => {
     const practitionersArray = practitioners.map(i =>
         <div key={i.name}>
             <label htmlFor={i.name}>Dr. {i.name}</label>
@@ -6,7 +10,8 @@ const SelectPractitioner = ({practitioners, action}) => {
                    name={'practitioners'}
                    id={i.name}
                    onChange={action}
-                   defaultChecked/>
+                   defaultChecked
+                   />
         </div>
     )
 

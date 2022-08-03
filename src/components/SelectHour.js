@@ -1,4 +1,4 @@
-import {practitioners, slots} from "../data";
+import {slots} from "../data";
 import styled from "styled-components";
 
 const StyledTable = styled.table`
@@ -13,9 +13,9 @@ const StyledTable = styled.table`
   }
 `
 
-const SelectHour = () => {
+const SelectHour = ({practitioners, date}) => {
     const getFreeSlots = (currentSlot) => practitioners.map(i =>
-        i.freeSlots.includes(currentSlot)
+        i.freeSlots.includes(currentSlot) && i.utcWorkingDays.includes(date.getUTCDay())
             ? <td key={i.name}><button>Book</button></td>
             : <td key={i.name}></td>
         );

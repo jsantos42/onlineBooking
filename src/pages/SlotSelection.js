@@ -5,38 +5,33 @@ import SelectHour from "../components/SelectHour";
 import {practitioners} from "../data";
 
 const checkablePractitioners = practitioners.map(i => {
-    i.checked = true
+    i.checked = true;
     return i;
 })
 
 //==============================================================================
 // SLOTSELECTION PAGE
 //==============================================================================
+//
 const SlotSelection = () => {
     const [date, setDate] = useState(new Date());
     const [doctors, setDoctors] = useState(checkablePractitioners);
 
-
-    const filterDoctors = (e) => {}
-    //     doctors.some(i => {
-    //         if (i.name === e.target.id) {
-    //             i.checked = e.target.checked;
-    //             return true;
-    //         }
-    //     })
-    //             //search for doctor with name e.target.id
-    //             // set his checked as e.target.checked
-    //             // setDoctors(doctors.filter(i => i.checked === true));
-    //     console.log(doctors);
-    //     }
-    //
-        // console.log(e.target.id, e.target.checked, e)
+    const updateCheckingStatus = (e) => {
+        setDoctors(doctors.map(i => {
+            if (i.name === e.target.id)
+                i.checked = e.target.checked;
+            return i;
+        }))
+    }
+    console.log(date.getUTCDay())
 
     return (
         <>
-            <SelectPractitioner practitioners={doctors} action={filterDoctors}/>
+            <SelectPractitioner action={updateCheckingStatus}/>
             <SelectDate action={setDate} value={date}/>
-            <SelectHour/>
+            <SelectHour practitioners={doctors.filter(i => i.checked)}
+                        date={date}/>
         </>
     )
 
