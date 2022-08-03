@@ -11,7 +11,6 @@ import sun from '../res/themeSwitches/sun.png'
 //==============================================================================
 // STYLING
 //==============================================================================
-
 const Main = styled.main`
   min-height: 100vh;
   display: flex;
@@ -19,6 +18,7 @@ const Main = styled.main`
   //justify-content: center;
   align-items: center;
   gap: 5rem;
+  padding: 3rem;
 `
 
 //==============================================================================

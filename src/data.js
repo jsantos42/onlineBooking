@@ -1,3 +1,6 @@
+//==============================================================================
+// TREATMENTS
+//==============================================================================
 const treatments = [
     {
         name: 'Appointment',
@@ -14,20 +17,27 @@ const treatments = [
 ]
 
 
+//==============================================================================
+// SLOTS
+//==============================================================================
 let slots = []
 for (let hour = 8; hour < 18; hour++) {
     if (hour !== 13)
         slots.push(hour);
 }
 
+
+//==============================================================================
+// PRACTITIONERS
+//==============================================================================
 const practitioners = [
     {
         name: 'A',
-        freeSlots: slots,
+        freeSlots: [8, 9, 10, 11],
     },
     {
         name: 'B',
-        freeSlots: slots,
+        freeSlots: [9, 14, 17],
     },
     {
         name: 'C',
@@ -35,20 +45,20 @@ const practitioners = [
     },
     {
         name: 'D',
-        freeSlots: slots,
+        freeSlots: [8, 16],
     },
 ]
 
-/*
- Upon submission, the form should output the values  to the console,
- clear the form and show a success page
- */
-const form = {
-    sex: '',
-    firstName: '',
-    familyName: '',
-    birthday: '',
-    email: '',
-}
+// /*
+//  Upon submission, the form should output the values  to the console,
+//  clear the form and show a success page
+//  */
+// const form = {
+//     sex: '',
+//     firstName: '',
+//     familyName: '',
+//     birthday: '',
+//     email: '',
+// }
 
-export {treatments, practitioners}
+export {treatments, slots, practitioners}

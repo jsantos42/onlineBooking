@@ -16,6 +16,7 @@ const StyledNav = styled.nav`
   align-items: center;
   justify-content: flex-end;
   z-index: 1;
+  border-bottom: 1px solid ${props => props.theme.color};
 `
 
 
