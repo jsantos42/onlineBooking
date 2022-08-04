@@ -13,7 +13,7 @@ const treatments = [
         name: 'Endoscopy',
         duration: 1,
         price: 100,
-        description: 'There\'s a tube going in on one end.',
+        description: 'There\'s a tube going in on one end',
     },
     {
         name: 'Colonoscopy',

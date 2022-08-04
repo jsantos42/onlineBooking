@@ -8,6 +8,18 @@ In the project directory, you can run: \
 If the browser does not open automatically, just go ahead and open 
 [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+## Potential Improvements
+- booking a slot does not change the json file in data
+- use of databases would allow us to have variations between weekdays on different
+  weeks (now, each doctor has a fixed set of slots)
+- calendar days should get faded out if no treatments available on them; this way, 
+filtering doctors would have a visual effect on the calendar
+- it could have smooth scrolling transition to each component that is triggered 
+by the user actions. I played a little with the useRef() but I would probably need
+another day just to do this, since I've never used it
+- it could be a LOT easier on the eyes...but then again I got the impression
+  styling was not the major goal here. If it was, let me know and I'll improve this!
+
 ## Documentation
 There's both a dark and light theme, switchable on the click of an icon on the 
 nav. Still, the aesthetics could be seriously be improved.
@@ -39,3 +51,6 @@ from scratch.*
 
 
 #### 3) FinalForm:
+You fill in the data, all fields are required.
+In the end it shows a success message and outputs an object with all the data to
+the console.

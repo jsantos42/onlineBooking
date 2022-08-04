@@ -19,6 +19,8 @@ const Cell = styled.div`
   text-align: center;
   padding: 1rem;
   background: ${props => props.selected ? '#006edc' : null};
+  color: ${props => props.selected ? 'white' : null};
+  font-weight: 800;
 
   &:hover {
     background: #006edc;
@@ -28,6 +30,7 @@ const Cell = styled.div`
 
 const Info = styled.p`
   font-style: italic;
+  font-weight: normal;
   opacity: 70%;
   text-align: center;
 `
@@ -62,7 +65,7 @@ const TreatmentSelection = ({treatment, onChange}) => {
     })
     return (
         <div>
-            <SectionTitle>1. What treatment are you looking for?</SectionTitle>
+            <SectionTitle>What treatment are you looking for?</SectionTitle>
             <Grid>
                 {treatmentArray}
             </Grid>

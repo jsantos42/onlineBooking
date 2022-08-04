@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import styled, {ThemeProvider} from "styled-components";
 import TreatmentSelection from "../pages/TreatmentSelection";
 import SlotSelection from "../pages/SlotSelection";
@@ -21,9 +21,19 @@ const Main = styled.main`
   padding: 3rem;
 `
 
+const SucessMessage = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+  color: green;
+`
+
 const Booking = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: flex-end;
   gap: 5rem;
 `
@@ -40,6 +50,9 @@ function App() {
     });
     const [treatment, setTreatment] = useState('');
     const [slot, setSlot] = useState({});
+    const [submitted, setSubmitted] = useState(false);
+
+    useEffect(() => window.scroll(0, 0), [submitted]);
 
     const switchTheme = () => {
         if (themeData.theme.name === 'light')
@@ -71,26 +84,43 @@ function App() {
     }
 
     const onSubmit = (e) => {
+        const bookingInfo = {
+            firstName: e.target.firstName.value,
+            familyName: e.target.familyName.value,
+            birthday: e.target.birthday.value,
+            sex: e.target.sex.value,
+            email: e.target.email.value,
+            date: slot.date,
+            time: slot.time,
+            practitioner: slot.practitioner,
+            treatment: treatment,
+        }
+        console.log(bookingInfo);
         e.preventDefault();
-        console.log(e.target.email.value);
-
+        setSubmitted(true);
     }
 
     return (
         <ThemeProvider theme={themeData.theme}>
             <GlobalStyle/>
             <Nav themeData={themeData} onSwitchTheme={switchTheme}/>
-            <Main>
-                <TreatmentSelection treatment={treatment} onChange={treatmentSelected}/>
-                <Booking>
-                {slotsVisible
-                    ? <SlotSelection treatment={treatment} onBooking={slotSelected}/>
-                    : null}
-                {formVisible
-                    ? <FinalForm onSubmit={onSubmit}/>
-                    : null}
-                </Booking>
-            </Main>
+            {submitted
+                ? <SucessMessage>
+                    <h2>Your booking was successful!</h2>
+                    <h3>You'll receive a confirmation e-mail.</h3>
+                </SucessMessage>
+                : <Main>
+                    <TreatmentSelection treatment={treatment} onChange={treatmentSelected}/>
+                    <Booking>
+                        {slotsVisible
+                            ? <SlotSelection treatment={treatment} onBooking={slotSelected}/>
+                            : null}
+                        {formVisible
+                            ? <FinalForm onSubmit={onSubmit}/>
+                            : null}
+                    </Booking>
+                </Main>
+            }
         </ThemeProvider>
     );
 }

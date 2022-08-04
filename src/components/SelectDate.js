@@ -131,13 +131,14 @@ const CalendarStyling = styled.div`
   }
 
   .react-calendar__tile--now {
-    background: #ffff76;
+    background: ${props => props.theme.color};
+    color: ${props => props.theme.background};
   }
 
-  .react-calendar__tile--now:enabled:hover,
-  .react-calendar__tile--now:enabled:focus {
-    background: #ffffa9;
-  }
+  //.react-calendar__tile--now:enabled:hover,
+  //.react-calendar__tile--now:enabled:focus {
+  //  background: #ffffa9;
+  //}
 
   .react-calendar__tile--hasActive {
     background: #76baff;

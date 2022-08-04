@@ -15,6 +15,7 @@ const Vertical = styled.div`
   flex-direction: column;
   gap: 3rem;
   align-items: center;
+  min-width: 280px;
 `
 
 
@@ -47,7 +48,7 @@ const SlotSelection = ({treatment, onBooking}) => {
 
     return (
         <Vertical>
-            <SectionTitle>2. Please pick a slot to book</SectionTitle>
+            <SectionTitle>When would you like to come?</SectionTitle>
             <SelectPractitioner action={updateCheckingStatus} practitioners={doctors}/>
             <SelectDate action={setDate} value={date}/>
             <SelectHour practitioners={doctors.filter(i => i.checked)}
