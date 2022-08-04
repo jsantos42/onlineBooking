@@ -5,11 +5,11 @@ const StyledTable = styled.table`
 
   td, th {
     text-align: center;
-    padding: 0.5rem;
   }
 
   .tHeader {
     background: #006edc;
+    padding: 0.8rem;
   }
 `
 
