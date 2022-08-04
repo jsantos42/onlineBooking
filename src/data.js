@@ -30,12 +30,12 @@ for (let hour = 8; hour < 18; hour++) {
 //==============================================================================
 // PRACTITIONERS
 //==============================================================================
-// Note that working days 0-6 mean Monday-Sunday
+// Note that working days 1-7 mean Monday-Sunday
 const practitioners = [
     {
         name: 'A',
         freeSlots: [8, 9, 10, 11],
-        utcWorkingDays: [0, 1, 2, 4],
+        utcWorkingDays: [1, 2, 4, 5],
     },
     {
         name: 'B',
@@ -50,7 +50,7 @@ const practitioners = [
     {
         name: 'D',
         freeSlots: [8, 16],
-        utcWorkingDays: [0, 1, 2],
+        utcWorkingDays: [1, 2, 3],
     },
 ]
 

@@ -15,7 +15,7 @@ const StyledTable = styled.table`
 
 const SelectHour = ({practitioners, date}) => {
     const getFreeSlots = (currentSlot) => practitioners.map(i =>
-        i.freeSlots.includes(currentSlot) && i.utcWorkingDays.includes(date.getUTCDay())
+        i.freeSlots.includes(currentSlot) && i.utcWorkingDays.includes(date.getDay())
             ? <td key={i.name}><button>Book</button></td>
             : <td key={i.name}></td>
         );

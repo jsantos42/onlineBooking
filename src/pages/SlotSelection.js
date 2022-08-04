@@ -24,7 +24,7 @@ const SlotSelection = () => {
             return i;
         }))
     }
-    console.log(date.getUTCDay())
+    // console.log(date.getDay())
 
     return (
         <>
