@@ -1,9 +1,11 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import SelectPractitioner from "../components/SelectPractitioner";
 import SelectDate from "../components/SelectDate";
 import SelectHour from "../components/SelectHour";
 import {practitioners} from "../data";
 
+// This has to remain outside of component, otherwise the toggling of the
+// checkboxes will produce no effect on the SelectHour component.
 const checkablePractitioners = practitioners.map(i => {
     i.checked = true;
     return i;
@@ -13,9 +15,14 @@ const checkablePractitioners = practitioners.map(i => {
 // SLOTSELECTION PAGE
 //==============================================================================
 //
-const SlotSelection = () => {
+const SlotSelection = ({treatment}) => {
     const [date, setDate] = useState(new Date());
-    const [doctors, setDoctors] = useState(checkablePractitioners);
+    const [doctors, setDoctors] = useState([]);
+
+    useEffect(() => {
+        setDoctors(checkablePractitioners
+            .filter(i => i.treatments.includes(treatment)));
+    }, [treatment])
 
     const updateCheckingStatus = (e) => {
         setDoctors(doctors.map(i => {
@@ -24,11 +31,10 @@ const SlotSelection = () => {
             return i;
         }))
     }
-    // console.log(date.getDay())
 
     return (
         <>
-            <SelectPractitioner action={updateCheckingStatus}/>
+            <SelectPractitioner action={updateCheckingStatus} practitioners={doctors}/>
             <SelectDate action={setDate} value={date}/>
             <SelectHour practitioners={doctors.filter(i => i.checked)}
                         date={date}/>

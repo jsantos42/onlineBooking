@@ -30,6 +30,7 @@ function App() {
         theme: darkTheme,
         themeSwitcher: sun,
     });
+    const [treatment, setTreatment] = useState('');
 
     const switchTheme = () => {
         if (themeData.theme.name === 'light')
@@ -44,13 +45,21 @@ function App() {
             });
     }
 
+    const treatmentSelected = (e) => {
+        if (!slotsVisible)
+            setSlotsVisible(true);
+        setTreatment(e.target.value);
+    }
+
     return (
         <ThemeProvider theme={themeData.theme}>
             <GlobalStyle/>
             <Nav themeData={themeData} onSwitchTheme={switchTheme}/>
             <Main>
-                <TreatmentSelection onChange={() => setSlotsVisible(true)}/>
-                {slotsVisible ? <SlotSelection /> : null}
+                <TreatmentSelection onChange={treatmentSelected}/>
+                {slotsVisible
+                    ? <SlotSelection treatment={treatment}/>
+                    : null}
             </Main>
         </ThemeProvider>
     );

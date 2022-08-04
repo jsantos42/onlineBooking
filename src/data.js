@@ -36,21 +36,25 @@ const practitioners = [
         name: 'A',
         freeSlots: [8, 9, 10, 11],
         utcWorkingDays: [1, 2, 4, 5],
+        treatments: ['Appointment', 'Endoscopy', 'Colonoscopy'],
     },
     {
         name: 'B',
         freeSlots: [9, 14, 17],
         utcWorkingDays: [3, 4],
+        treatments: ['Endoscopy', 'Colonoscopy'],
     },
     {
         name: 'C',
         freeSlots: slots,
         utcWorkingDays: [1, 3],
+        treatments: ['Appointment', 'Endoscopy', 'Colonoscopy'],
     },
     {
         name: 'D',
         freeSlots: [8, 16],
         utcWorkingDays: [1, 2, 3],
+        treatments: ['Colonoscopy'],
     },
 ]
 
