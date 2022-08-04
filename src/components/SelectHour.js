@@ -13,12 +13,16 @@ const StyledTable = styled.table`
   }
 `
 
-const SelectHour = ({practitioners, date}) => {
+const SelectHour = ({practitioners, date, onBooking}) => {
     const getFreeSlots = (currentSlot) => practitioners.map(i =>
         i.freeSlots.includes(currentSlot) && i.utcWorkingDays.includes(date.getDay())
-            ? <td key={i.name}><button>Book</button></td>
+            ? <td key={i.name}>
+                <button onClick={() => onBooking(date, currentSlot, i.name)}>
+                    Book
+                </button>
+            </td>
             : <td key={i.name}></td>
-        );
+    );
 
     const headers = practitioners.map(i =>
         <th key={i.name} className={'tHeader'}>Dr. {i.name}</th>
@@ -36,13 +40,13 @@ const SelectHour = ({practitioners, date}) => {
     return (
         <StyledTable>
             <thead>
-                <tr>
-                    <th/>
-                    {headers}
-                </tr>
+            <tr>
+                <th/>
+                {headers}
+            </tr>
             </thead>
             <tbody>
-                {rows}
+            {rows}
             </tbody>
         </StyledTable>
     )

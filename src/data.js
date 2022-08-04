@@ -66,16 +66,4 @@ const practitioners = [
     },
 ]
 
-// /*
-//  Upon submission, the form should output the values  to the console,
-//  clear the form and show a success page
-//  */
-// const form = {
-//     sex: '',
-//     firstName: '',
-//     familyName: '',
-//     birthday: '',
-//     email: '',
-// }
-
 export {treatments, slots, practitioners}
