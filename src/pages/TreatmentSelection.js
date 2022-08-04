@@ -49,7 +49,6 @@ const TreatmentSelection = ({treatment, onChange}) => {
                         {i.name}
                         <input type={'radio'}
                                name={'treatment'}
-                               value={i.name}
                                id={i.name}
                                onChange={onChange}
                                style={{appearance: 'none'}}

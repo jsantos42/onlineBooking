@@ -21,6 +21,13 @@ const Main = styled.main`
   padding: 3rem;
 `
 
+const Booking = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 5rem;
+`
+
 //==============================================================================
 // APP CONTAINER
 //==============================================================================
@@ -50,7 +57,7 @@ function App() {
     const treatmentSelected = (e) => {
         if (!slotsVisible)
             setSlotsVisible(true);
-        setTreatment(e.target.value);
+        setTreatment(e.target.id);
     }
 
     const slotSelected = (date, hour, doctor) => {
@@ -63,18 +70,26 @@ function App() {
         });
     }
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+        console.log(e.target.email.value);
+
+    }
+
     return (
         <ThemeProvider theme={themeData.theme}>
             <GlobalStyle/>
             <Nav themeData={themeData} onSwitchTheme={switchTheme}/>
             <Main>
                 <TreatmentSelection treatment={treatment} onChange={treatmentSelected}/>
+                <Booking>
                 {slotsVisible
                     ? <SlotSelection treatment={treatment} onBooking={slotSelected}/>
                     : null}
                 {formVisible
-                    ? <FinalForm/>
+                    ? <FinalForm onSubmit={onSubmit}/>
                     : null}
+                </Booking>
             </Main>
         </ThemeProvider>
     );
