@@ -1,18 +1,26 @@
 //==============================================================================
 // TREATMENTS
 //==============================================================================
+// Regarding the units, price is in euros and duration is in hours.
 const treatments = [
     {
         name: 'Appointment',
+        duration: 1,
         price: 50,
+        description: 'First or routine consultation with your physician'
     },
     {
         name: 'Endoscopy',
+        duration: 1,
         price: 100,
+        description: 'There\'s a tube going in on one end.',
     },
     {
         name: 'Colonoscopy',
+        duration: 1,
         price: 200,
+        description: 'There\'s a tube going in on the other end. There\'s a ' +
+            'very tasty liquid you should drink on the previous day.',
     },
 ]
 
