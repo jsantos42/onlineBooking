@@ -1,5 +1,6 @@
 # Online Booking
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). \
+Online booking tool and agenda management for a business, namely a medical center.
+It is still a work in progress, I'm adding a backend to it and improving some aspects of the frontend.
 
 ## Running
 In the project directory, you can run: \
@@ -8,21 +9,21 @@ In the project directory, you can run: \
 If the browser does not open automatically, just go ahead and open 
 [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Potential Improvements
-- booking a slot does not change the json file in data
+## Improvements to work on
 - use of databases would allow us to have variations between weekdays on different
   weeks (now, each doctor has a fixed set of slots)
+- booking a slot does not change the json file in data; this will also be corrected
+once the database is implemented
 - calendar days should get faded out if no treatments available on them; this way, 
 filtering doctors would have a visual effect on the calendar
 - it could have smooth scrolling transition to each component that is triggered 
-by the user actions. I played a little with the useRef() but I would probably need
-another day just to do this, since I've never used it
-- it could be a LOT easier on the eyes...but then again I got the impression
-  styling was not the major goal here. If it was, let me know and I'll improve this!
+by the user actions. Consider using useRef()
+- it could be a LOT easier on the eyes...but then again styling was not the major 
+goal here
 
 ## Documentation
 There's both a dark and light theme, switchable on the click of an icon on the 
-nav. Still, the aesthetics could be seriously be improved.
+nav.
 
 There's essentially 3 steps on the booking process:
 #### 1) TreatmentSelection: 
@@ -37,10 +38,9 @@ that perform the selected treatment. This filtering will affect the SelectHour
 component.
 - **SelectDate:** calendar that allows you to select the date. Selecting a 
 different weekday will show different results on SelectHour. \
-*Note that I'm not using any databases, just a simple JS object as data, so the 
-variation is very limited. I opted to give them fixed time slots for fixed weekdays.
-This could be much more fluid if using databases, but for this demonstration it 
-should be enough.*
+*Note that I'm not (yet!) using any databases, just a simple JS object as data, 
+so the variation is very limited. I opted to give them fixed time slots for fixed 
+weekdays. This will be much more fluid when using databases.*
 - **SelectHour:** table with the possible booking slots. Selecting one will take
 you to the final form.
 
