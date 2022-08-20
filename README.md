@@ -1,6 +1,9 @@
 # Online Booking
-Online booking tool and agenda management for a business, namely a medical center.
-It is still a work in progress, I'm adding a backend to it and improving some aspects of the frontend.
+Single Page Application to schedule appointments for a business, namely a medical center.
+It is still a work in progress, I'm still going to:
+- add an agenda management
+- add a backend to it 
+- improve some aspects of the frontend (see below)
 
 ## Running
 In the project directory, you can run: \
