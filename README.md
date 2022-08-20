@@ -1,4 +1,5 @@
 # Online Booking
+![screenshot](sample.gif)
 Single Page Application to schedule appointments for a business, namely a medical center.
 It is still a work in progress, I'm still going to:
 - add an agenda management
